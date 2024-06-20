@@ -213,12 +213,11 @@ def give_loan():
 
             if loan < maximum_loan:
                 messagebox.showinfo(
-                    "Success", f"Loan for {loan} $ is approved!")
+                    "Success", f"Loan for {full_name} is approved!")
                 show_main_buttons()
 
             else:
-                messagebox.showinfo(
-                    "Sorry", f"Loan declined!\nMaximum loan: {maximum_loan} $")
+                messagebox.showinfo("Sorry", f"Loan declined!")
 
         tk.Button(loan_form_window, text="Submit", font=font_style, command=process_loan).grid(
             row=8, column=0, padx=10, pady=5, columnspan=1)
