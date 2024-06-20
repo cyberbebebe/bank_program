@@ -52,11 +52,11 @@ def show_main_buttons():
     button_frame.pack(expand=True)
 
     tk.Button(button_frame, text="Register Client", command=register_client,
-              width=50, height=10, font=font_style).grid(row=0, column=0, padx=10)
+              width=45, height=10, font=font_style).grid(row=0, column=0, padx=10)
     tk.Button(button_frame, text="Give Loan", command=give_loan,
-              width=50, height=10, font=font_style).grid(row=0, column=1, padx=10)
+              width=45, height=10, font=font_style).grid(row=0, column=1, padx=10)
     tk.Button(button_frame, text="Deposit/Withdraw Money", command=deposit_withdraw,
-              width=50, height=10, font=font_style).grid(row=0, column=2, padx=10)
+              width=45, height=10, font=font_style).grid(row=0, column=2, padx=10)
 
 
 def register_client():
@@ -127,50 +127,55 @@ def give_loan():
 
         loan_form_window = tk.Frame(main_window)
         loan_form_window.pack(expand=True)
+
         tk.Label(loan_form_window,
-                 text=f"Loan details for {full_name}", font=font_style)
+                 text=f"Loan for:", font=font_style).grid(row=0, column=0, columnspan=1)
+
+        tk.Label(loan_form_window,
+                 text=f"{full_name}", font=font_style).grid(row=0, column=1, columnspan=1)
+
         tk.Label(loan_form_window, text="Income per year:", font=font_style).grid(
-            row=0, column=0)
+            row=1, column=0)
         income_entry = tk.Entry(loan_form_window, font=font_style)
-        income_entry.grid(row=0, column=1, padx=10,
+        income_entry.grid(row=1, column=1, padx=10,
                           pady=5, columnspan=2, sticky="e")
 
         tk.Label(loan_form_window, text="Job title:",
-                 font=font_style).grid(row=1, column=0)
+                 font=font_style).grid(row=2, column=0)
         job_entry = tk.Entry(loan_form_window, font=font_style)
-        job_entry.grid(row=1, column=1, padx=10,
+        job_entry.grid(row=2, column=1, padx=10,
                        pady=5, columnspan=2, sticky="e")
 
         tk.Label(loan_form_window, text="Years of employment:", font=font_style).grid(
-            row=2, column=0)
+            row=3, column=0)
         employment_length_entry = tk.Entry(loan_form_window, font=font_style)
         employment_length_entry.grid(
-            row=2, column=1, padx=10, pady=5, columnspan=2, sticky="e")
+            row=3, column=1, padx=10, pady=5, columnspan=2, sticky="e")
 
         tk.Label(loan_form_window, text="Additional Income Source:", font=font_style).grid(
-            row=3, column=0)
+            row=4, column=0)
         additional_income_source_entry = tk.Entry(
             loan_form_window, font=font_style)
         additional_income_source_entry.grid(
-            row=3, column=1, padx=10, pady=5, columnspan=2, sticky="e")
-
-        tk.Label(loan_form_window,
-                 text="Additional Income per year:", font=font_style).grid(row=4, column=0)
-        additional_income_entry = tk.Entry(loan_form_window, font=font_style)
-        additional_income_entry.grid(
             row=4, column=1, padx=10, pady=5, columnspan=2, sticky="e")
 
         tk.Label(loan_form_window,
-                 text="Loan needed:", font=font_style).grid(row=5, column=0)
-        loan_needed = tk.Entry(loan_form_window, font=font_style)
-        loan_needed.grid(
+                 text="Additional Income per year:", font=font_style).grid(row=5, column=0)
+        additional_income_entry = tk.Entry(loan_form_window, font=font_style)
+        additional_income_entry.grid(
             row=5, column=1, padx=10, pady=5, columnspan=2, sticky="e")
 
         tk.Label(loan_form_window,
-                 text="Loan terms (month):", font=font_style).grid(row=6, column=0)
+                 text="Loan needed:", font=font_style).grid(row=6, column=0)
+        loan_needed = tk.Entry(loan_form_window, font=font_style)
+        loan_needed.grid(
+            row=6, column=1, padx=10, pady=5, columnspan=2, sticky="e")
+
+        tk.Label(loan_form_window,
+                 text="Loan terms (month):", font=font_style).grid(row=7, column=0)
         loan_terms = tk.Entry(loan_form_window, font=font_style)
         loan_terms.grid(
-            row=6, column=1, padx=10, pady=5, columnspan=2, sticky="e")
+            row=7, column=1, padx=10, pady=5, columnspan=2, sticky="e")
 
         def process_loan():
             client_income = float(income_entry.get())
@@ -179,7 +184,7 @@ def give_loan():
             additional_income_source = additional_income_source_entry.get()
             additional_income = additional_income_entry.get()
             loan = float(loan_needed.get())
-            terms = float(loan_terms.get())/12
+            terms = float(loan_terms.get())
             client_score = client["score"]
 
             current_year = datetime.datetime.now().year
@@ -196,8 +201,9 @@ def give_loan():
 
             client_durability = 60-client_age
 
-            maximum_loan = 0.1*work_expirience*client_income*client_durability + \
-                work_expirience*additional_income*0.1 + client_score*work_expirience
+            maximum_loan = client_income*0.1*(client_score/1000)*terms + 0.1*additional_income * \
+                work_expirience + client_durability * \
+                (client_score/1000)*client_income
 
             if loan < maximum_loan:
                 messagebox.showinfo(
@@ -206,12 +212,12 @@ def give_loan():
 
             else:
                 messagebox.showinfo(
-                    "Sorry", f"Loan declined!\nMaximum loan: {maximum_loan}")
+                    "Sorry", f"Loan declined!\nMaximum loan: {maximum_loan} $")
 
         tk.Button(loan_form_window, text="Submit", font=font_style, command=process_loan).grid(
-            row=7, column=0, padx=10, pady=5, columnspan=1)
+            row=8, column=0, padx=10, pady=5, columnspan=1)
         tk.Button(loan_form_window, text="Back", font=font_style, command=show_main_buttons).grid(
-            row=7, column=1, padx=10, pady=5, columnspan=1)
+            row=8, column=1, padx=10, pady=5, columnspan=1)
 
     loan_window = tk.Frame(main_window)
     loan_window.pack(expand=True)
