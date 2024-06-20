@@ -1,60 +1,68 @@
 {
-  "clients": [
-    {
-      "Full name": "Client Example",
-      "Date of birth": "11.11.2001",
-      "Contact information": "0999-999-999",
-      "Residential address": "USA",
-      "score": 2,
-      "balance": 0.0
-    },
-    {
-      "Full name": "Testing Client",
-      "Date of birth": "12.02.2002",
-      "Contact information": "0999-999-998",
-      "Residential address": "USA, Florida",
-      "score": 1,
-      "balance": 500.0
-    },
-    {
-      "Full name": "Test User",
-      "Date of birth": "11.01.2000",
-      "Contact information": "example@gmail.com",
-      "Residential address": "Ukraine, Kyiv",
-      "score": 0,
-      "balance": 0
-    },
-    {
-      "Full name": "Test",
-      "Date of birth": "20.20.2000",
-      "Contact information": "096",
-      "Residential address": "Here",
-      "score": 20.5,
-      "balance": 20500.0
-    },
-    {
-      "Full name": "Test2",
-      "Date of birth": "20.20.2000",
-      "Contact information": "099",
-      "Residential address": "There",
-      "score": 0.0,
-      "balance": 0.0
-    },
-    {
-      "Full name": "er",
-      "Date of birth": "20.20.2000",
-      "Contact information": "096",
-      "Residential address": "24",
-      "score": 0.0,
-      "balance": 0.0
-    },
-    {
-      "Full name": "Testing User",
-      "Date of birth": "20.10.2000",
-      "Contact information": "0231",
-      "Residential address": "Japan",
-      "score": 0.1,
-      "balance": 100.0
-    }
-  ]
+    "clients": [
+        {
+            "Full name": "Client Example",
+            "Date of birth": "11.11.2001",
+            "Contact information": "0999-999-999",
+            "Residential address": "USA",
+            "score": 2,
+            "balance": 0.0
+        },
+        {
+            "Full name": "Testing Client",
+            "Date of birth": "12.02.2002",
+            "Contact information": "0999-999-998",
+            "Residential address": "USA, Florida",
+            "score": 1,
+            "balance": 500.0
+        },
+        {
+            "Full name": "Test User",
+            "Date of birth": "11.01.2000",
+            "Contact information": "example@gmail.com",
+            "Residential address": "Ukraine, Kyiv",
+            "score": 0,
+            "balance": 0
+        },
+        {
+            "Full name": "Test",
+            "Date of birth": "20.20.2000",
+            "Contact information": "096",
+            "Residential address": "Here",
+            "score": 20.5,
+            "balance": 20500.0
+        },
+        {
+            "Full name": "Test2",
+            "Date of birth": "20.20.2000",
+            "Contact information": "099",
+            "Residential address": "There",
+            "score": 0.0,
+            "balance": 0.0
+        },
+        {
+            "Full name": "er",
+            "Date of birth": "20.20.2000",
+            "Contact information": "096",
+            "Residential address": "24",
+            "score": 0.0,
+            "balance": 0.0
+        },
+        {
+            "Full name": "Testing User",
+            "Date of birth": "20.10.2000",
+            "Contact information": "0231",
+            "Residential address": "Japan",
+            "score": 0.1,
+            "balance": 100.0
+        },
+        {
+            "Full name": "Tester Client",
+            "Date of birth": "12.01.1990",
+            "Contact information": "email@email.com",
+            "Residential address": "US",
+            "score": 0,
+            "balance": 0
+        }
+    ]
 }

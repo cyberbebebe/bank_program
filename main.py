@@ -1,6 +1,5 @@
 import tkinter as tk
-from tkinter import font
-from tkinter import messagebox, ttk
+from tkinter import messagebox
 import json
 import datetime
 
@@ -48,15 +47,22 @@ def create_client_info_form(parent):
 def show_main_buttons():
     for widget in main_window.winfo_children():
         widget.destroy()
+
+    title_frame = tk.Frame(main_window)
+    title_frame.pack(fill=tk.X, pady=(200, 0))
+
+    tk.Label(title_frame, text="SimpleBank",
+             font=("Helvetica", 60)).pack(pady=0)
+
     button_frame = tk.Frame(main_window)
-    button_frame.pack(expand=True)
+    button_frame.pack(expand=True, pady=(0, 100))
 
     tk.Button(button_frame, text="Register Client", command=register_client,
-              width=45, height=10, font=font_style).grid(row=0, column=0, padx=10)
+              width=45, height=10, font=font_style).grid(row=1, column=0, padx=10)
     tk.Button(button_frame, text="Give Loan", command=give_loan,
-              width=45, height=10, font=font_style).grid(row=0, column=1, padx=10)
+              width=45, height=10, font=font_style).grid(row=1, column=1, padx=10)
     tk.Button(button_frame, text="Deposit/Withdraw Money", command=deposit_withdraw,
-              width=45, height=10, font=font_style).grid(row=0, column=2, padx=10)
+              width=45, height=10, font=font_style).grid(row=1, column=2, padx=10)
 
 
 def register_client():
