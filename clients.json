@@ -29,8 +29,8 @@
             "Date of birth": "20.20.2000",
             "Contact information": "096",
             "Residential address": "Here",
-            "score": 20.2,
-            "balance": 20200.0
+            "score": 20.5,
+            "balance": 20500.0
         },
         {
             "Full name": "Test2",
@@ -48,7 +48,6 @@
             "score": 0.0,
             "balance": 0.0
         },
-        null,
         {
             "Full name": "Test",
             "Date of birth": "20.20.2000",
@@ -56,6 +55,14 @@
             "Residential address": "Here",
             "score": 0.0,
             "balance": 0.0
+        },
+        {
+            "Full name": "Testing User",
+            "Date of birth": "20.10.2000",
+            "Contact information": "0231",
+            "Residential address": "Japan",
+            "score": 0.1,
+            "balance": 100.0
         }
     ]
 }
