@@ -128,7 +128,7 @@ def give_loan():
         loan_form_window = tk.Frame(main_window)
         loan_form_window.pack(expand=True)
         tk.Label(loan_form_window,
-                 text=f"Loan details for {client}", font=font_style)
+                 text=f"Loan details for {full_name}", font=font_style)
         tk.Label(loan_form_window, text="Income per year:", font=font_style).grid(
             row=0, column=0)
         income_entry = tk.Entry(loan_form_window, font=font_style)
@@ -167,37 +167,46 @@ def give_loan():
             row=5, column=1, padx=10, pady=5, columnspan=2, sticky="e")
 
         tk.Label(loan_form_window,
-                 text="Loan terms (years):", font=font_style).grid(row=6, column=0)
+                 text="Loan terms (month):", font=font_style).grid(row=6, column=0)
         loan_terms = tk.Entry(loan_form_window, font=font_style)
         loan_terms.grid(
             row=6, column=1, padx=10, pady=5, columnspan=2, sticky="e")
 
         def process_loan():
-            client_income = income_entry.get()
-            job = job_entry.get()
-            work_years = employment_length_entry.get()
+            client_income = float(income_entry.get())
+            job = str(job_entry.get())
+            work_expirience = float(employment_length_entry.get())
             additional_income_source = additional_income_source_entry.get()
             additional_income = additional_income_entry.get()
-            loan = loan_needed.get()
-            terms = loan_terms.get()
+            loan = float(loan_needed.get())
+            terms = float(loan_terms.get())/12
+            client_score = client["score"]
 
             current_year = datetime.datetime.now().year
             client_birth_year = int(client["Date of birth"].split(".")[2])
             client_age = current_year - client_birth_year
 
-            if client.get("Job title"):
-                score += 2
+            if (additional_income_source == "-" and additional_income == "-") or (additional_income_source == "-" and additional_income == "0"):
+                additional_income = 0
+            else:
+                additional_income = float(additional_income)
 
-            client_score = score
-            client_workability = int(client["Date of birth"])
-            maximum_loan = 0.25*client_income*client_score
+            if job != "-":
+                client_score += 4
+
+            client_durability = 60-client_age
+
+            maximum_loan = 0.1*work_expirience*client_income*client_durability + \
+                work_expirience*additional_income*0.1 + client_score*work_expirience
+
             if loan < maximum_loan:
-                messagebox.showerror("Error", "Loan declined!")
+                messagebox.showinfo(
+                    "Success", f"Loan for {loan} $ is approved!")
+                show_main_buttons()
 
             else:
-                messagebox.showinfo("Success", "Loan approved!")
-
-            show_main_buttons()
+                messagebox.showinfo(
+                    "Sorry", f"Loan declined!\nMaximum loan: {maximum_loan}")
 
         tk.Button(loan_form_window, text="Submit", font=font_style, command=process_loan).grid(
             row=7, column=0, padx=10, pady=5, columnspan=1)
