@@ -308,9 +308,9 @@ def deposit_withdraw():
         withdraw_window)
 
     tk.Button(withdraw_window, text="Submit", font=font_style,
-              command=submit_action).grid(row=4, column=1, padx=10, pady=5, columnspan=1, sticky="e")
-    tk.Button(withdraw_window, text="Back", font=font_style,
-              command=show_main_buttons).grid(row=4, column=2, padx=10, pady=5, columnspan=1, sticky="e")
+              command=submit_action).grid(row=4, column=0, padx=10, pady=5, columnspan=1, sticky="e")
+    tk.Button(withdraw_window, text="Back", font=font_style, command=show_main_buttons).grid(
+        row=4, column=1, padx=10, pady=5, columnspan=1, sticky="e")
 
 
 font_style = ("Helvetica", 16)

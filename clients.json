@@ -29,8 +29,8 @@
             "Date of birth": "20.20.2000",
             "Contact information": "096",
             "Residential address": "Here",
-            "score": 20.5,
-            "balance": 20500.0
+            "score": 20.7,
+            "balance": 20700.0
         },
         {
             "Full name": "Test2",
@@ -61,6 +61,14 @@
             "Date of birth": "12.01.1990",
             "Contact information": "email@email.com",
             "Residential address": "US",
+            "score": 0,
+            "balance": 0
+        },
+        {
+            "Full name": "Test2",
+            "Date of birth": "10.20.2000",
+            "Contact information": "09",
+            "Residential address": "Ukraine",
             "score": 0,
             "balance": 0
         }
